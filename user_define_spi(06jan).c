@@ -31,7 +31,23 @@ int main(void){
 	int data [6][1] = {{0x00000000}, {0x00000000}, {0x00000000}, {0x00000000}, {0x00000000}, {0x00000000}}; // Just initialize with all zero value
 	int dataA [6][1] = {{0x18802c00}, {0x29800008}, {0x424e0000}, {0xb3040000}, {0x3c80ec00}, {0x05005800}}; //for 35Mhz
 	int dataB [6][1] = {{0x00004000}, {0x11800008}, {0x00004e42}, {0x000004b3}, {0x3c80ac00}, {0x00580005}}; //for 800Mhz
+        int dataC [6][1] = {{0x00005000}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c80ac00}, {0x05005800}}; //for 1000Mhz
+        int dataD [6][1] = {{0x003c0000}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c809c00}, {0x05005800}}; //for 1.5Ghz
+        int dataE [6][1] = {{0x00004800}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c809c00}, {0x05005800}}; //for 1.8Ghz
+        int dataF [6][1] = {{0x00005000}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c809c00}, {0x05005800}}; //for 2.0Ghz
+        int dataG [6][1] = {{0x00002c00}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}}; //for 2.2Ghz
+        int dataH [6][1] = {{0x00003200}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}}; //for 2.5Ghz
+        int dataI [6][1] = {{0x00003800}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}};  //for 2.8Ghz
+        int dataJ [6][1] = {{0x00003c00}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}}; //for 3.0Ghz
+        int dataK [6][1] = {{0x00004600}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}}; //for 3.5Ghz
+        int dataL [6][1] = {{0x00004c00}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}}; //for 3.8Ghz
+        int dataM [6][1] = {{0x00005000}, {0x11800008}, {{0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}}; //for 4.0Ghz
+        int dataN [6][1] = {{0x00005400}, {0x11800008}, {{0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}}; //for 4.2Ghz
+        int dataO [6][1] = {{0x00005800}, {0x11800008}, {{0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}}; //for 4.4Ghz
+	
+	
 
+	
 	if(init_spi() < 0){
             printf("Initialization of SPI failed. Error: %s\n", strerror(errno));
             return -1;
@@ -43,15 +59,21 @@ int main(void){
 		option = user_input();
 		
 		switch(option){
-			case 1 : strcpy(data, dataA); break;
-			case 2 : strcpy(data, dataB); break;
-			case 3 : strcpy(data, dataB); break;
-			case 4 : strcpy(data, dataB); break;
-			case 5 : strcpy(data, dataB); break;
-			case 6 : strcpy(data, dataB); break;
-			case 7 : strcpy(data, dataB); break;
-			case 8 : strcpy(data, dataB); break;
-			case 9 : strcpy(data, dataB); break;
+			case 1 : memcpy(data, dataA, sizeof(dataA)); break;
+			case 2 : memcpy(data, dataB, sizeof(dataB)); break;
+			case 3 : memcpy(data, dataC, sizeof(dataC)); break;
+			case 4 : memcpy(data, dataD, sizeof(dataD)); break;
+			case 5 : memcpy(data, dataE, sizeof(dataE)); break;
+			case 6 : memcpy(data, dataF, sizeof(dataF)); break;
+			case 7 : memcpy(data, dataG, sizeof(dataG)); break;
+			case 8 : memcpy(data, dataH, sizeof(dataH)); break;
+			case 9 : memcpy(data, dataI, sizeof(dataI)); break;
+			case 10 : memcpy(data, dataJ, sizeof(dataJ)); break;
+			case 11 : memcpy(data, dataK, sizeof(dataK)); break;
+			case 12 : memcpy(data, dataL, sizeof(dataL)); break;
+			case 13 : memcpy(data, dataM, sizeof(dataM)); break;
+			case 14 : memcpy(data, dataN, sizeof(dataN)); break;
+			case 15 : memcpy(data, dataO, sizeof(dataO)); break;
 			case 99 : return 0;
 			default: printf("Wrong input!\n"); continue;
 		}
