@@ -28,7 +28,7 @@ int main(void){
     /* Sample data */
     //char *data = "REDPITAYA SPI TEST";	
 	unsigned int option = 0;
-	int data [6][1] = {{0x0}, {0x0}, {0x0}, {0x0}, {0x0}, {0x0}}; // Just initialize with all zero value
+	int data [6][1] = {{0x00000000}, {0x00000000}, {0x00000000}, {0x00000000}, {0x00000000}, {0x00000000}}; // Just initialize with all zero value
 	int dataA [6][1] = {{0x18802c00}, {0x29800008}, {0x424e0000}, {0xb3040000}, {0x3c80ec00}, {0x05005800}}; //for 35Mhz
 	int dataB [6][1] = {{0x00004000}, {0x11800008}, {0x00004e42}, {0x000004b3}, {0x3c80ac00}, {0x00580005}}; //for 800Mhz
 
