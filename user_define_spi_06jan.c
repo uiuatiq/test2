@@ -41,9 +41,9 @@ int main(void){
         int dataJ [6][1] = {{0x00003c00}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}}; //for 3.0Ghz
         int dataK [6][1] = {{0x00004600}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}}; //for 3.5Ghz
         int dataL [6][1] = {{0x00004c00}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}}; //for 3.8Ghz
-        int dataM [6][1] = {{0x00005000}, {0x11800008}, {{0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}}; //for 4.0Ghz
-        int dataN [6][1] = {{0x00005400}, {0x11800008}, {{0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}}; //for 4.2Ghz
-        int dataO [6][1] = {{0x00005800}, {0x11800008}, {{0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}}; //for 4.4Ghz
+        int dataM [6][1] = {{0x00005000}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}}; //for 4.0Ghz
+        int dataN [6][1] = {{0x00005400}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}}; //for 4.2Ghz
+        int dataO [6][1] = {{0x00005800}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}}; //for 4.4Ghz
 	
 	
 
@@ -113,7 +113,7 @@ static int init_spi(){
     *
     * multiple possibilities possible using | */
     int mode = 0;
-    mode |= SPI_MODE_2;
+    //mode |= SPI_MODE_2;
 
     /* Opening file stream */
     spi_fd = open("/dev/spidev1.0", O_RDWR | O_NOCTTY);
