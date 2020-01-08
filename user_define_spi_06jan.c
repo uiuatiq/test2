@@ -206,10 +206,10 @@ int write_gpio(long number)
 unsigned int user_input(void){
 	
 	unsigned int usr_inp = 0;
-	unsigned int show_freq[10] = {35, 80, 3, 4, 5, 6, 7, 8, 9};
+	unsigned int show_freq[15] = {35, 800, 1000, 1500, 1800, 2000, 2200, 2500, 2800, 3000, 3500, 3800, 4000, 4200};
 	
-	printf("Choose from the following option: (1~9)\n");
-	for (int i = 0; i < 9; i++) {
+	printf("Choose from the following option: (1~15)\n");
+	for (int i = 0; i < 15; i++) {
 		printf("\t%d. For %d MHz frequency\n", (i+1), show_freq[i]);
 	}
 	printf("For exit the program, Enter: 99.\n");
