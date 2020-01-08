@@ -1,4 +1,5 @@
 /* This is a simple application for testing SPI communication on a RedPitaya
+/* The master is RP and slave is ADF4351 Eval (Frequency synthesizer)
 ** Test GPIO port P
 */
 #include <stdio.h>
@@ -28,7 +29,7 @@ int main(void){
     /* Sample data */
     //char *data = "REDPITAYA SPI TEST";	
 	unsigned int option = 0;
-	int data [6][1] = {{0x00000000}, {0x00000000}, {0x00000000}, {0x00000000}, {0x00000000}, {0x00000000}}; // Just initialize with all zero value
+	int data [6][1] = {{0x00000000}, {0x00000000}, {0x00000000}, {0x00000000}, {0x00000000}, {0x00000000}}; // To initialize with all zero value
 	int dataA [6][1] = {{0x18802c00}, {0x29800008}, {0x424e0000}, {0xb3040000}, {0x3c80ec00}, {0x05005800}}; //for 35Mhz
 	int dataB [6][1] = {{0x00004000}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c80ac00}, {0x00580005}}; //for 800Mhz
         int dataC [6][1] = {{0x00005000}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c80ac00}, {0x05005800}}; //for 1000Mhz
@@ -45,8 +46,6 @@ int main(void){
         int dataN [6][1] = {{0x00005400}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}}; //for 4.2Ghz
         int dataO [6][1] = {{0x00005800}, {0x11800008}, {0x424e0000}, {0xb3040000}, {0x3c808c00}, {0x05005800}}; //for 4.4Ghz
 	
-	
-
 	
 	if(init_spi() < 0){
             printf("Initialization of SPI failed. Error: %s\n", strerror(errno));
@@ -102,10 +101,10 @@ int main(void){
 
 static int init_spi(){
 
-    /* MODES: mode |= SPI_LOOP;
+   /* MODES: mode |= SPI_LOOP;
     *        mode |= SPI_CPHA;
     *        mode |= SPI_CPOL;
-    *                 mode |= SPI_LSB_FIRST;
+    *        mode |= SPI_LSB_FIRST;
     *        mode |= SPI_CS_HIGH;
     *        mode |= SPI_3WIRE;
     *        mode |= SPI_NO_CS;
